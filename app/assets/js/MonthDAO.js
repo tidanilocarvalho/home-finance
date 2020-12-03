@@ -2,34 +2,30 @@ import Dexie from "https://cdn.jsdelivr.net/npm/dexie@3.0.3/dist/dexie.mjs";
 
 let db;
 
-export default class TagDAO {
+export default class MonthDAO {
   constructor() {
     this.initializeDB();
   }
 
   initializeDB() {
-    db = new Dexie("home-finance-tag-db");
+    db = new Dexie("home-finance-month-db");
 
     db.version(1).stores({
-      tags: "++id,tag",
+      months: "++id,month",
     });
 
     db.open();
   }
 
   getAll() {
-    return db.tags.toArray();
+    return db.months.toArray();
   }
 
   get(id) {
-    return db.tags.get(id);
+    return db.months.get(id);
   }
 
-  save(tag) {
-    return db.tags.put(tag);
-  }
-
-  delete(id) {
-    return db.tags.delete(id);
+  save(month) {
+    return db.months.put(month);
   }
 }

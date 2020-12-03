@@ -1,5 +1,3 @@
-const doneCssClass = 'done';
-
 export default class TagService {
     constructor(tagDAO) {
       this.tagDAO = tagDAO;

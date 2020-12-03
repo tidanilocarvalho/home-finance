@@ -1,5 +1,5 @@
-import TagService from './TagService.js'
 import TagDAO from './TagDAO.js'
+import TagService from './TagService.js'
 
 class App {
   constructor() {
