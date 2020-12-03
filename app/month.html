@@ -32,7 +32,16 @@
       </div>
       <main class="mdl-layout__content mat-typography" style="text-align: center">
         <form>
-          <input type="text" name="item" placeholder="Type Month (MM/yyyy)" autofocus="" required="" autocomplete="off">
+          <input
+            type="text"
+            name="item"
+            placeholder="Type Month (MM-yyyy)"
+            autofocus=""
+            required=""
+            autocomplete="off"
+            minlength="7"
+            maxlength="7"
+            pattern="^(0?[1-9]|1[012])[\-\-]\d{4}$">
         </form>
         <ul></ul>
       </main>
