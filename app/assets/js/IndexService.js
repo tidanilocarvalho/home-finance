@@ -11,13 +11,14 @@ export default class IndexService {
       const months = await this.monthDAO.getAll();
 
       tags.forEach((tag) => this.addTagToCombox(tag));
-      //months.forEach((month) => this.addMonthToCombox(month));
+      months.forEach((month) => this.addMonthToCombox(month));
 
       this.bindTagEvent();
+      this.bindMonthEvent();
     }
 
     addTagToCombox(tag) {
-      const ul = document.querySelector(".mdc-list");
+      const ul = document.querySelector(".home-finance-tag-select");
 
       const li = document.createElement("li");
       const span1 = document.createElement("span");
@@ -36,9 +37,36 @@ export default class IndexService {
       ul.appendChild(li);
     }
 
+    addMonthToCombox(month) {
+      const ul = document.querySelector(".home-finance-month-select");
+
+      const li = document.createElement("li");
+      const span1 = document.createElement("span");
+      const span2 = document.createElement("span");
+  
+      span2.textContent = month.monthYear;
+      
+      span1.classList.add("mdc-list-item__ripple");
+      span2.classList.add("mdc-list-item__text");
+
+      li.classList.add("mdc-list-item");
+      li.setAttribute("data-value", month.monthYear);
+
+      li.appendChild(span1);
+      li.appendChild(span2);
+      ul.appendChild(li);
+    }
     
     bindTagEvent() {
-      const select = mdc.select.MDCSelect.attachTo(document.querySelector('.mdc-select'));
+      const select = mdc.select.MDCSelect.attachTo(document.querySelector(".mdc-tag-select"));
+        
+      select.listen('MDCSelect:change', () => {
+        console.log(select.selectedIndex, select.value);
+      });
+    }
+
+    bindMonthEvent() {
+      const select = mdc.select.MDCSelect.attachTo(document.querySelector(".mdc-month-select"));
         
       select.listen('MDCSelect:change', () => {
         console.log(select.selectedIndex, select.value);
