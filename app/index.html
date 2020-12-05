@@ -35,45 +35,55 @@
           <a class="mdl-navigation__link" href="about.html">About</a>
         </nav>
       </div>
+      <main class="mdl-layout__content mat-typography" style="text-align: center">
+        <form>
+          <input
+            type="text"
+            name="item"
+            placeholder="Type Value"
+            autofocus=""
+            required=""
+            autocomplete="off"
+            minlength="1"
+            pattern="[0-9]*">
 
-      <div id="tagSelect">
-        <div class="mdc-select mdc-select--filled mdc-select--no-label demo-width-class">
-          <div class="mdc-select__anchor">
-            <span class="mdc-select__ripple"></span>
-            <span class="mdc-select__selected-text-container">
-              <span class="mdc-select__selected-text"></span>
-            </span>
-            <span class="mdc-select__dropdown-icon">
-              <svg
-                  class="mdc-select__dropdown-icon-graphic"
-                  viewBox="7 10 10 5" focusable="false">
-                <polygon
-                    class="mdc-select__dropdown-icon-inactive"
-                    stroke="none"
-                    fill-rule="evenodd"
-                    points="7 10 12 15 17 10">
-                </polygon>
-                <polygon
-                    class="mdc-select__dropdown-icon-active"
-                    stroke="none"
-                    fill-rule="evenodd"
-                    points="7 15 12 10 17 15">
-                </polygon>
-              </svg>
-            </span>
-            <span class="mdc-line-ripple"></span>
-          </div>
-        
-          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-            <ul class="mdc-list">
-              <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true">
-                <span class="mdc-list-item__ripple"></span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
+            <div class="mdc-select mdc-select--filled mdc-select--no-label demo-width-class">
+              <div class="mdc-select__anchor">
+                <span class="mdc-select__ripple"></span>
+                <span class="mdc-select__selected-text-container">
+                  <span class="mdc-select__selected-text"></span>
+                </span>
+                <span class="mdc-select__dropdown-icon">
+                  <svg
+                      class="mdc-select__dropdown-icon-graphic"
+                      viewBox="7 10 10 5" focusable="false">
+                    <polygon
+                        class="mdc-select__dropdown-icon-inactive"
+                        stroke="none"
+                        fill-rule="evenodd"
+                        points="7 10 12 15 17 10">
+                    </polygon>
+                    <polygon
+                        class="mdc-select__dropdown-icon-active"
+                        stroke="none"
+                        fill-rule="evenodd"
+                        points="7 15 12 10 17 15">
+                    </polygon>
+                  </svg>
+                </span>
+                <span class="mdc-line-ripple"></span>
+              </div>
+            
+              <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                <ul class="mdc-list">
+                  <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true">
+                    <span class="mdc-list-item__ripple"></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </form>
+      </main>
     </div>
   </div>
   <script defer src="assets/js/material.min.js"></script>

@@ -11,18 +11,19 @@ export default class IndexService {
       const months = await this.monthDAO.getAll();
 
       tags.forEach((tag) => this.addTagToCombox(tag));
-     //months.forEach((month) => this.addToHtmlList(month.monthYear));
+      //months.forEach((month) => this.addMonthToCombox(month));
 
-     this.bindTagEvent();
+      this.bindTagEvent();
     }
 
     addTagToCombox(tag) {
       const ul = document.querySelector(".mdc-list");
+
       const li = document.createElement("li");
       const span1 = document.createElement("span");
       const span2 = document.createElement("span");
   
-      span2.textContent = tag.tagName
+      span2.textContent = tag.tagName;
       
       span1.classList.add("mdc-list-item__ripple");
       span2.classList.add("mdc-list-item__text");
@@ -35,6 +36,7 @@ export default class IndexService {
       ul.appendChild(li);
     }
 
+    
     bindTagEvent() {
       const select = mdc.select.MDCSelect.attachTo(document.querySelector('.mdc-select'));
         
