@@ -4,28 +4,42 @@ export default class IndexService {
       this.monthDAO = monthDAO;
       this.listAll();
     }
-    
+
     //TODO
     async listAll() {
       const tags = await this.tagDAO.getAll();
       const months = await this.monthDAO.getAll();
 
-      tags.forEach((tag) => this.addToHtmlList(tag.tagName));
-      months.forEach((month) => this.addToHtmlList(month.monthYear));
+      tags.forEach((tag) => this.addTagToCombox(tag));
+     //months.forEach((month) => this.addToHtmlList(month.monthYear));
+
+     this.bindTagEvent();
     }
 
-
-    //TODO
-    addToHtmlList(value) {
-      const ul = document.querySelector("ul");
+    addTagToCombox(tag) {
+      const ul = document.querySelector(".mdc-list");
       const li = document.createElement("li");
-      const span = document.createElement("span");
-      const button = document.createElement("button");
+      const span1 = document.createElement("span");
+      const span2 = document.createElement("span");
   
-      span.textContent = value
+      span2.textContent = tag.tagName
+      
+      span1.classList.add("mdc-list-item__ripple");
+      span2.classList.add("mdc-list-item__text");
 
-      li.appendChild(span);
-      li.appendChild(button);
+      li.classList.add("mdc-list-item");
+      li.setAttribute("data-value", tag.tagName);
+
+      li.appendChild(span1);
+      li.appendChild(span2);
       ul.appendChild(li);
+    }
+
+    bindTagEvent() {
+      const select = mdc.select.MDCSelect.attachTo(document.querySelector('.mdc-select'));
+        
+      select.listen('MDCSelect:change', () => {
+        console.log(select.selectedIndex, select.value);
+      });
     }
   }
