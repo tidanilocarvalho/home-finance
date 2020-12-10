@@ -26,6 +26,7 @@ const assetsToCache = [
   'index.html',
   'about.html',
   'tag.html',
+  'month.html',
   '/'
 ];
 
