@@ -63,6 +63,10 @@ export default class MonthService {
       }
   
       button.textContent = "⚙️";
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();       
+        window.location = "balance.html?monthId=" + month.id;;
+    });
 
       li.appendChild(span);
       li.appendChild(button);
