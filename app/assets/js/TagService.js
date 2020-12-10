@@ -52,7 +52,7 @@ export default class TagService {
 
       li.setAttribute("data-item-id", tags.id);
 
-      button.textContent = "x";
+      button.textContent = "❌";
       button.addEventListener("click", (event) => {
           event.stopPropagation();
           this.deleteTag(li);

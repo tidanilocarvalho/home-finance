@@ -62,6 +62,8 @@ export default class MonthService {
         li.classList.add(doneCssClass);
       }
   
+      button.textContent = "⚙️";
+
       li.appendChild(span);
       li.appendChild(button);
       ul.appendChild(li);
