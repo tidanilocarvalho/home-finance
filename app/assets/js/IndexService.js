@@ -94,6 +94,19 @@ export default class IndexService {
       const expense = { monthValue, tagValue, itemValue, paid: false };
       const expenseId = await this.indexDAO.save(expense);
       expense.id = expenseId;
-      console.log(expense.id);
+
+      await this.showExpenseSaved(expense);
+    }
+
+    async showExpenseSaved(expense) {
+      const spanMonth = document.querySelector(".expense-month-saved");
+      const spanTag= document.querySelector(".expense-tag-saved");
+      const spanValue = document.querySelector(".expense-value-saved");
+      const spanText = document.querySelector(".expense-text-saved");
+
+      spanMonth.textContent = "Month: " + expense.monthValue;
+      spanTag.textContent = "Tag: " + expense.tagValue;
+      spanValue.textContent = "Value: " + expense.itemValue;
+      spanText.textContent = "Saved Successfully";
     }
   }

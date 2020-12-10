@@ -7,6 +7,16 @@ form {
   border-bottom: solid 1px #ddd;
 }
 
+.happy-logo {
+  max-width: 20px;
+  max-height: 20px;
+}
+
+.expense {
+  padding: 0.5em;
+  font-size: 1.5em;
+}
+
 .mdc-select {
   width: 100%;
   padding: 0.5em;

@@ -7,7 +7,7 @@ const assetsToCache = [
   'https://fonts.googleapis.com/css?family=Roboto:400,700',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://cdn.jsdelivr.net/npm/dexie@3.0.3/dist/dexie.mjs',
-  'assets/images/pwa-logo.png',
+  'assets/images/happy-logo.png',
   'assets/js/material.min.js',
   'assets/css/style.css',
   'assets/js/tag.js',
