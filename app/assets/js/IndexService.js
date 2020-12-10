@@ -1,11 +1,16 @@
+var monthValue;
+var tagValue;
+var itemValue;
+
 export default class IndexService {
-    constructor(tagDAO, monthDAO) {
+    constructor(indexDAO, tagDAO, monthDAO) {
+      this.indexDAO = indexDAO;
       this.tagDAO = tagDAO;
       this.monthDAO = monthDAO;
       this.listAll();
+      this.bindFormEvent();
     }
 
-    //TODO
     async listAll() {
       const tags = await this.tagDAO.getAll();
       const months = await this.monthDAO.getAll();
@@ -61,7 +66,7 @@ export default class IndexService {
       const select = mdc.select.MDCSelect.attachTo(document.querySelector(".mdc-tag-select"));
         
       select.listen('MDCSelect:change', () => {
-        console.log(select.selectedIndex, select.value);
+        tagValue = select.value;
       });
     }
 
@@ -69,7 +74,26 @@ export default class IndexService {
       const select = mdc.select.MDCSelect.attachTo(document.querySelector(".mdc-month-select"));
         
       select.listen('MDCSelect:change', () => {
-        console.log(select.selectedIndex, select.value);
+        monthValue = select.value;
       });
+    }
+
+    bindFormEvent() {
+      const form = document.querySelector("form");
+      
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        itemValue = form.item.value;
+        this.addExpense();
+        form.reset();
+        form.item.focus();
+      });
+    }
+
+    async addExpense() {
+      const expense = { monthValue, tagValue, itemValue, paid: false };
+      const expenseId = await this.indexDAO.save(expense);
+      expense.id = expenseId;
+      console.log(expense.id);
     }
   }

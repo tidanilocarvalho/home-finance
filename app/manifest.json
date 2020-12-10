@@ -1,7 +1,7 @@
 {
   "name": "Home Finance",
   "short_name": "Finance",
-  "theme_color": "#3f51b5",
+  "theme_color": "#616161",
   "background_color": "#fff",
   "display": "standalone",
   "scope": ".",

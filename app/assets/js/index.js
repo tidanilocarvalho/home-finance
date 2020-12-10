@@ -1,5 +1,6 @@
 import TagDAO from './TagDAO.js'
 import MonthDAO from './MonthDAO.js'
+import IndexDAO from './IndexDAO.js'
 import IndexService from './IndexService.js'
 
 class App {
@@ -9,7 +10,7 @@ class App {
   }
   
   initialize() {
-    new IndexService(new TagDAO(), new MonthDAO());
+    new IndexService(new IndexDAO(), new TagDAO(), new MonthDAO());
   }
 
   registerServiceWorker() {
